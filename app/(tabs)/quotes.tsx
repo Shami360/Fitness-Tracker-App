@@ -11,11 +11,10 @@ import {
 } from "react-native";
 
 type Quote = {
-  q: string; // quote text
-  a: string; // author
+  q: string;
+  a: string;
 };
 
-// Fallback quotes in case the API is unavailable
 const FALLBACK_QUOTES: Quote[] = [
   { q: "The only bad workout is the one that didn't happen.", a: "Unknown" },
   { q: "Take care of your body. It's the only place you have to live.", a: "Jim Rohn" },
@@ -39,7 +38,6 @@ export default function QuotesScreen() {
     setUsedFallback(false);
 
     try {
-      // ZenQuotes API — free, no key required
       const response = await fetch("https://zenquotes.io/api/random", {
         headers: { Accept: "application/json" },
       });
@@ -53,7 +51,6 @@ export default function QuotesScreen() {
         throw new Error("Empty response");
       }
     } catch {
-      // Fall back to local quotes
       const random = FALLBACK_QUOTES[Math.floor(Math.random() * FALLBACK_QUOTES.length)];
       setQuote(random);
       setUsedFallback(true);
@@ -66,7 +63,6 @@ export default function QuotesScreen() {
     <View style={styles.container}>
       <StatusBar barStyle="light-content" backgroundColor="#1a1a2e" />
 
-      {/* Header */}
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Daily Motivation</Text>
         <Text style={styles.headerSubtitle}>
@@ -75,7 +71,6 @@ export default function QuotesScreen() {
       </View>
 
       <ScrollView contentContainerStyle={styles.content}>
-        {/* Quote Card */}
         <View style={styles.quoteCard}>
           <Ionicons
             name="chatbubble-ellipses-outline"
@@ -106,7 +101,6 @@ export default function QuotesScreen() {
           )}
         </View>
 
-        {/* Fetch Button */}
         <TouchableOpacity
           style={[styles.fetchButton, loading && styles.fetchButtonDisabled]}
           onPress={fetchQuote}
@@ -124,7 +118,6 @@ export default function QuotesScreen() {
           </Text>
         </TouchableOpacity>
 
-        {/* Tips Section */}
         <Text style={styles.sectionLabel}>Today's Fitness Tips</Text>
         {FITNESS_TIPS.map((tip, i) => (
           <View key={i} style={styles.tipCard}>

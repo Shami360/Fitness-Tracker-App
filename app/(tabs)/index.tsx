@@ -43,7 +43,6 @@ export default function HomeScreen() {
     <View style={styles.container}>
       <StatusBar barStyle="light-content" backgroundColor="#1a1a2e" />
 
-      {/* Header */}
       <View style={styles.header}>
         <View>
           <Text style={styles.headerTitle}>Fitness Tracker</Text>
@@ -61,7 +60,6 @@ export default function HomeScreen() {
         </TouchableOpacity>
       </View>
 
-      {/* Progress Bar */}
       <View style={styles.progressContainer}>
         <View style={styles.progressBar}>
           <View
@@ -84,7 +82,6 @@ export default function HomeScreen() {
         </Text>
       </View>
 
-      {/* Search */}
       <View style={styles.searchContainer}>
         <Ionicons name="search" size={18} color="#888" style={styles.searchIcon} />
         <TextInput
@@ -102,7 +99,6 @@ export default function HomeScreen() {
         )}
       </View>
 
-      {/* Category Filter */}
       <FlatList
         horizontal
         data={CATEGORIES}
@@ -132,7 +128,6 @@ export default function HomeScreen() {
         )}
       />
 
-      {/* Exercise List */}
       <FlatList
         data={filtered}
         keyExtractor={(item) => item.id}

@@ -1,17 +1,13 @@
-// Shared exercise store using a simple module-level state with listeners
-// (lightweight alternative to Redux/Zustand for this assignment)
-
 export type Exercise = {
   id: string;
   name: string;
   category: string;
   description: string;
-  image: string; // URL or local require key
+  image: string;
   completed: boolean;
   custom?: boolean;
 };
 
-// Placeholder images from a free fitness image source
 const DEFAULT_EXERCISES: Exercise[] = [
   {
     id: "1",
