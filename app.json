@@ -48,8 +48,9 @@
     "extra": {
       "router": {},
       "eas": {
-        "projectId": "03f5fed8-bb2a-43bf-9345-feb67a0ee8cb"
+        "projectId": "bc0f81d9-7a42-4203-a893-e5f07dd7f567"
       }
-    }
+    },
+    "owner": "shami360"
   }
 }
